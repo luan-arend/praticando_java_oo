@@ -1,9 +1,12 @@
 package model;
 
 public class Produto {
+    private String codigo;
     private String nome;
     private double preco;
     private int quantidade;
+
+    public String getCodigo() { return codigo; }
 
     public String getNome() {
         return nome;
@@ -17,18 +20,10 @@ public class Produto {
         return quantidade;
     }
 
-    public Produto(String nome, double preco) {
+    public Produto(String codigo, String nome, double preco) {
+        this.codigo = codigo;
         this.nome = nome;
         this.preco = preco;
         this.quantidade = 10;
-    }
-
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "nome='" + nome + '\'' +
-                ", preco=" + preco +
-                ", quantidade=" + quantidade +
-                '}';
     }
 }
