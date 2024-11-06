@@ -4,9 +4,9 @@ public class ItemCarrinho {
     private Produto produto;
     private int quantidade;
 
-    public ItemCarrinho(Produto produto) {
+    public ItemCarrinho(Produto produto, int quantidade) {
         this.produto = produto;
-        this.quantidade = 1;
+        this.quantidade = quantidade;
     }
 
     public Produto getProduto() {

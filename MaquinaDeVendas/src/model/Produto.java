@@ -31,10 +31,10 @@ public class Produto {
         }
     }
 
-    public Produto(String codigo, String nome, double preco) {
+    public Produto(String codigo, String nome, double preco, int quantidade) {
         this.codigo = codigo;
         this.nome = nome;
         this.preco = preco;
-        this.quantidade = 10;
+        this.quantidade = quantidade;
     }
 }

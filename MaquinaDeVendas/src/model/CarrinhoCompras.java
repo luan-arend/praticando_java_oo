@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarrinhoCompras {
-    private List<ItemCarrinho> meuCarrinho;
+    private List<ItemCarrinho> compras;
 
-    public List<ItemCarrinho> getMeuCarrinho() {
-        return meuCarrinho;
+    public CarrinhoCompras() {
+        compras = new ArrayList<>();
     }
 
-    public void adicionaProduto(Produto produto) {
-        for (ItemCarrinho item : meuCarrinho) {
+    public List<ItemCarrinho> getCarrinho() {
+        return compras;
+    }
+
+    public void adicionaNoCarrinho(Produto produto) {
+        for (ItemCarrinho item : compras) {
             if (item.getProduto().getCodigo().equals(produto.getCodigo())) {
-                item.incrementaQuantidade();
+                item.incrementaQuantidade(); // Incrementa a quantidade do produto já existente
                 return;
             }
         }
-        meuCarrinho.add(new ItemCarrinho(produto));
-    }
-
-    public CarrinhoCompras() {
-        meuCarrinho = new ArrayList<>();
+        compras.add(new ItemCarrinho(produto, 1));
     }
 }
