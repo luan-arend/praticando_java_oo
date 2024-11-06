@@ -22,13 +22,19 @@ public class Produto {
         return quantidade;
     }
 
-    public void compraItem() {
+    public boolean compraItem() {
         if (quantidade <= 0) {
-            System.out.println("Não há estoque suficiente do item selecionado para a compra.");
+            System.out.println("Não há estoque suficiente do item selecionado.");
+            return false;
         } else {
-            System.out.printf("Item %s comprado com sucesso!",nome);
+            System.out.printf("Produto %s adicionado ao carrinho!", nome);
             quantidade--;
+            return true;
         }
+    }
+
+    public void exibirDetalhes() {
+        System.out.printf("Cód: %s - %s - R$ %.2f - Estoque: %d%n", codigo, nome, preco, quantidade);
     }
 
     public Produto(String codigo, String nome, double preco, int quantidade) {

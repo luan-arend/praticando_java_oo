@@ -65,9 +65,8 @@ public class MaquinaDeVendas {
 
     private void listarProdutos() {
         System.out.println("Produtos disponíveis:");
-        for (Produto item : produtos) {
-            System.out.printf("Cód: %s - %s - R$ %.2f - Estoque: %d%n",
-                    item.getCodigo(), item.getNome(), item.getPreco(), item.getQuantidade());
+        for (Produto produto : produtos) {
+            produto.exibirDetalhes();
         }
     }
 
@@ -95,13 +94,7 @@ public class MaquinaDeVendas {
         Produto produtoSelecionado = buscarProdutoPorCodigo(codigo);
 
         if (produtoSelecionado != null) {
-            if (produtoSelecionado.getQuantidade() > 0) {
-                produtoSelecionado.compraItem();
-                carrinho.adicionaNoCarrinho(produtoSelecionado);
-                System.out.printf("Produto %s adicionado ao carrinho.%n", produtoSelecionado.getNome());
-            } else {
-                System.out.println("Produto fora de estoque.");
-            }
+            if (produtoSelecionado.compraItem()) carrinho.adicionaNoCarrinho(produtoSelecionado);
         } else {
             System.out.println("Código de produto inválido.");
         }
